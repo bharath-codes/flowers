@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* --- Basic Setup --- */
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(120deg, #fff0f5, #fde7e4);
+        padding: 20px;
+        overflow-x: hidden;
+      }
+
+      /* --- Floating Background Flowers --- */
+      .floating-flowers-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        pointer-events: none;
+        z-index: -1;
+      }
+      .petal {
+        position: absolute;
+        bottom: -150px;
+        font-size: 2rem;
+        opacity: 0.15;
+        animation: floatUp 25s linear infinite;
+      }
+      .petal:nth-child(even) {
+        animation-duration: 35s;
+        animation-delay: -5s;
+        font-size: 1.5rem;
+      }
+      .petal:nth-child(odd) {
+        animation-duration: 20s;
+        animation-delay: -2s;
+      }
+      @keyframes floatUp {
+        to {
+          transform: translateY(-110vh) rotate(360deg);
+        }
+      }
+      .petal:nth-child(1) {
+        left: 5%;
+      }
+      .petal:nth-child(2) {
+        left: 15%;
+      }
+      .petal:nth-child(3) {
+        left: 25%;
+      }
+      .petal:nth-child(4) {
+        left: 35%;
+      }
+      .petal:nth-child(5) {
+        left: 45%;
+      }
+      .petal:nth-child(6) {
+        left: 55%;
+      }
+      .petal:nth-child(7) {
+        left: 65%;
+      }
+      .petal:nth-child(8) {
+        left: 75%;
+      }
+      .petal:nth-child(9) {
+        left: 85%;
+      }
+
+      /* --- Main Content Styling --- */
+      h1 {
+        text-align: center;
+        font-family: "Great Vibes", cursive;
+        font-size: 3rem;
+        color: #d81b60;
+        margin: 20px 0 40px 0;
+        animation: fadeInDown 1.5s ease-out;
+      }
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* --- The Responsive Flower Gallery Grid --- */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      /* --- NEW: Unified Flower Box Design --- */
+      .flower-box {
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        aspect-ratio: 1 / 1.4; /* A taller, elegant ratio */
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column; /* Stacks the image and text vertically */
+      }
+
+      .flower-box img {
+        width: 100%;
+        height: 100%; /* The image will try to fill the box */
+        object-fit: cover;
+        flex-grow: 1; /* Allows the image to take up available space */
+        transition: transform 0.4s ease;
+        min-height: 0; /* Important for flexbox sizing */
+      }
+
+      /* NEW: Styling for the description text */
+      .flower-box p {
+        flex-shrink: 0; /* Prevents the text from being squished */
+        padding: 15px;
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: #880e4f;
+        text-align: center;
+        margin: 0;
+      }
+
+      /* A clever trick: if the <p> tag is empty, it disappears! */
+      .flower-box p:empty {
+        display: none;
+      }
+
+      /* The enhanced hover effect */
+      .flower-box:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      }
+      .flower-box:hover img {
+        transform: scale(1.1);
+      }
+
+      /* --- The Final Letter --- */
+      .letter {
+        text-align: center;
+        font-family: "Great Vibes", cursive;
+        font-size: 1.9rem;
+        line-height: 2;
+        color: #b71c1c;
+        padding: 40px 30px;
+        background: #fff5f8;
+        border-radius: 15px;
+        margin: 80px auto 40px auto;
+        max-width: 700px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      /* --- Scroll Animations --- */
+      .hidden {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+      }
+      .show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background Petals -->
+    <div class="floating-flowers-container">
+      <div class="petal">🌸</div>
+      <div class="petal">🌹</div>
+      <div class="petal">🌷</div>
+      <div class="petal">🌻</div>
+      <div class="petal">🌺</div>
+      <div class="petal">🌼</div>
+      <div class="petal">💐</div>
+      <div class="petal">🌸</div>
+      <div class="petal">🌹</div>
+    </div>
+
+    <h1>Flowers for my Baby Lilly 🌸</h1>
+
+    <!-- The new 8-flower gallery grid -->
+    <div class="gallery-grid hidden">
+      <!-- Box 1: Rose (with description) -->
+      <div class="flower-box">
+        <img src="rose.jpg" alt="Red Rose" />
+        <p>For the deep, passionate love I feel for you every moment. 🌹</p>
+      </div>
+
+      <!-- Box 2: Visual Only -->
+      <div class="flower-box">
+        <img src="cats flower.jpg" alt="Pink Peony" />
+        <p></p>
+      </div>
+
+      <!-- Box 3: Sunflower (with description) -->
+      <div class="flower-box">
+        <img src="sunflowers.jpg" alt="Sunflower" />
+        <p>
+          For the way your smile lights up my world, turning everything to gold.
+          🌻
+        </p>
+      </div>
+
+      <!-- Box 4: Visual Only -->
+      <div class="flower-box">
+        <img src="suns.jpg" alt="Purple lavender" />
+        <p></p>
+      </div>
+
+      <!-- Box 6: Tulip (with description) -->
+      <div class="flower-box">
+        <img src="pinks.jpg" alt="Pink Tulip" />
+        <p>
+          For the comfort and perfect happiness you bring, like a new spring. 🌷
+        </p>
+      </div>
+
+      <!-- Box 5: Visual Only -->
+      <div class="flower-box">
+        <img src="dog.jpg" alt="White Daisy" />
+        <p></p>
+      </div>
+
+      <!-- Box 8: White Lily (with description) -->
+      <div class="flower-box">
+        <img src="lily.jpg" alt="White Lily" />
+        <p>
+          For your pure heart and the beautiful soul I fell in love with. 🤍
+        </p>
+      </div>
+
+      <!-- Box 5: Visual Only -->
+      <div class="flower-box">
+        <img src="hamster.jpg" alt="White Daisy" />
+        <p></p>
+      </div>
+    </div>
+
+    <!-- The Final Letter -->
+    <div class="letter hidden">
+      My dearest love,<br /><br />
+      If I could, I would fill your room with every flower from every garden in
+      the world, just to see that soft smile light up your face. But distance
+      keeps me from placing them in your hands… so I built this little garden
+      for you, here, on your screen. Each flower carries a part of my love,
+      floating gently toward you. Yet even if I gave you every bloom the earth
+      could offer, it still wouldn’t be enough, because nothing in this world
+      could ever compare to you. You’re the reason flowers exist in the first
+      place, so something could try to match your beauty, even if they never
+      truly could.. 💖<br /><br />
+      Forever yours,<br />
+      Bharath 💌
+    </div>
+
+    <!-- JavaScript for Scroll Animations -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      const hiddenElements = document.querySelectorAll(".hidden");
+      hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
